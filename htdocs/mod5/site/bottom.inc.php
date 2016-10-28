@@ -1,5 +1,9 @@
-<table width="100%">
+﻿<table width="100%">
 	<tr>
-		<td align="center">&copy SuperMegaWebMaster, 2008</td>
+		<td align="center">&copy SuperMegaWebMaster, <?=date('Y')?>
+		<hr>
+		Powered by <?=$_SERVER['SERVER_SOFTWARE']?>
+		
+		</td>
 	</tr>
 </table>

@@ -1,7 +1,8 @@
 ﻿<?php
 	
-	$cols = 5;//кол-во $td
-	$rows = 3;//кол-во $tr
+	$cols = 10;//кол-во $td
+	$rows = 10;//кол-во $tr
+	$color = "yellow";
 	?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
@@ -9,22 +10,29 @@
 <head>
 	<title>“аблица умножени¤</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+	<style>
+		th{background:<?=$color?> ;}
+		table{border:3px solid black;
+			margin:0 auto;}
+	</style>
 </head>
 <body>
-	<h1>“аблица умножени¤</h1>
+	<h1>Tаблица умножени¤</h1>
 	<?php
-	$td = $cols;
-	$tr = $rows;
-		echo "<table border='1' align='center'>";
+	
+		echo "<table> \n";
 			for ($tr=1; $tr<=$rows; $tr++){
-				echo "<tr>";
-					
-				echo "</tr>";
+				echo "\t\t <tr> \n" ;
+					for($td=1; $td<=$cols; $td++){
+						if($td==1 or $tr==1)
+							echo "\t\t\t <th background='$color'>" . $tr * $td . "</th> \n";
+						else
+							echo "\t\t\t <td>" . $tr * $td . "</td> \n";
+					}
+				echo "\t\t </tr> \n";
 			}
-		echo "</table>";
-	/*for($i=1; $i<=$cols, $i<=$rows; $i++){       for ($i=1; $i<=$cols; $i++)
-					echo "";
-				}*/
+		echo "\t </table>";
+	
 	?>
 	
 </body>

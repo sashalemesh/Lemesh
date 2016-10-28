@@ -1,5 +1,10 @@
-<table width="100%">
+п»ї<table width="100%">
 	<tr>
-		<td align="center"><h1>Добро пожаловать на наш сайт!</h1></td>
+		<td align="center"><h1>Р”РѕР±СЂРѕ РїРѕР¶Р°Р»РѕРІР°С‚СЊ РЅР° РЅР°С€ СЃР°Р№С‚!</h1>
+		<?php
+		if(!getMenu($topMenu, FALSE))		
+				echo 'MY_ERR_ON_GET_MENU';
+		?>
+		</td>
 	</tr>
 </table>

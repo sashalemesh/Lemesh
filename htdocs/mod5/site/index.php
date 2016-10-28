@@ -1,14 +1,17 @@
-<?php
+п»ї<?php
 		/*
-		ЗАДАНИЕ 1
-		- Подключите файл lib.inc.php
+		Р—РђР”РђРќРР• 1
+		- РџРѕРґРєР»СЋС‡РёС‚Рµ С„Р°Р№Р» lib.inc.php
 		*/
+		require "config.inc.php";
+		require "lib.inc.php";
+		require "data.inc.php";
 		?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
 <head>
-	<title>Шаблон сайта</title>
+	<title>РЁР°Р±Р»РѕРЅ СЃР°Р№С‚Р°</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 </head>
 <body>
@@ -17,40 +20,43 @@
 
 <tr>
 	<td colspan="2" align="center">
-		<!-- Верхняя часть страницы -->
+		<!-- Р’РµСЂС…РЅСЏСЏ С‡Р°СЃС‚СЊ СЃС‚СЂР°РЅРёС†С‹ -->
 		<?php
 		/*
-		ЗАДАНИЕ 2
-		- Подключите файл, содержащий код верхней части страницы (top.inc.php)
+		Р—РђР”РђРќРР• 2
+		- РџРѕРґРєР»СЋС‡РёС‚Рµ С„Р°Р№Р», СЃРѕРґРµСЂР¶Р°С‰РёР№ РєРѕРґ РІРµСЂС…РЅРµР№ С‡Р°СЃС‚Рё СЃС‚СЂР°РЅРёС†С‹ (top.inc.php)
 		*/
+			include "top.inc.php";
 		?>
 	</td>
 </tr>
 
 <tr>
 	<td width="20%" valign="top">
-		<!-- Меню -->
+		<!-- РњРµРЅСЋ -->
 		<?php
 		/*
-		ЗАДАНИЕ 3
-		- Подключите файл, содержащий код меню (menu.inc.php)
+		Р—РђР”РђРќРР• 3
+		- РџРѕРґРєР»СЋС‡РёС‚Рµ С„Р°Р№Р», СЃРѕРґРµСЂР¶Р°С‰РёР№ РєРѕРґ РјРµРЅСЋ (menu.inc.php)
 		*/
+		require "menu.inc.php";
 		?>
 	</td>
 	<td>
-		<!-- Область основного контента -->
+		<!-- РћР±Р»Р°СЃС‚СЊ РѕСЃРЅРѕРІРЅРѕРіРѕ РєРѕРЅС‚РµРЅС‚Р° -->
 		&nbsp;
 	</td>
 </tr>
 
 <tr>
 	<td colspan="2" align="center">
-		<!-- Нижняя часть страницы -->
+		<!-- РќРёР¶РЅСЏСЏ С‡Р°СЃС‚СЊ СЃС‚СЂР°РЅРёС†С‹ -->
 		<?php
 		/*
-		ЗАДАНИЕ 4
-		- Подключите файл, содержащий код нижней части страницы (bottom.inc.php)
+		Р—РђР”РђРќРР• 4
+		- РџРѕРґРєР»СЋС‡РёС‚Рµ С„Р°Р№Р», СЃРѕРґРµСЂР¶Р°С‰РёР№ РєРѕРґ РЅРёР¶РЅРµР№ С‡Р°СЃС‚Рё СЃС‚СЂР°РЅРёС†С‹ (bottom.inc.php)
 		*/
+		include "bottom.inc.php";
 		?>
 	</td>
 </tr>

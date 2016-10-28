@@ -82,4 +82,108 @@ echo "array Массивы <br>";//array Массивы
 	if(!defined('AAA'))
 		define('AAA',200);
 	echo AAA;
+	
+	/*echo '<hr>';
+	$user2[]="John";
+	$user2[]="root";
+	$user2[]="1234";
+	$user2[]=25;
+	$user2[]=true;
+		for($i=0, $cnt=count($user2); i<$cnt; $i++){
+			echo $user2[$i] . '<br>';
+		}*/
+		
+		echo '<hr>';
+		echo 'FOREACH - Циклы'.'<br>';
+		$userr["name"]="John";
+		$userr["login"]="root";
+		$userr["pass"]="1234";
+		$userr["age"]=25;
+		$userr[]=true;
+			
+				foreach($userr as $key => $v){ // $key - ключ; $v - переменная покоторой будет бегать массив
+					echo $key ." = " . $v .'<br>';
+				}
+				echo '<hr>';
+				
+$users = [
+    [
+        "name" => "Вася",
+        "age" => 45,
+        "gender" => "Мужской"
+    ],
+    [
+        "name" => "Оксана",
+        "age" => 21,
+        "gender" => "Женский"
+    ],
+    [
+        "name" => "Петя",
+        "age" => 33,
+        "gender" => "Мужской"
+    ],
+    [
+        "name" => "Катя",
+        "age" => 24,
+        "gender" => "Женский"
+    ]
+];
+echo $users[2][age], $users[3][age];
 ?>
+
+
+<?php
+$products = [
+    [
+        "name" => "Iphone 7",
+        "price" => 600,
+        "properties" => [
+            [
+                "name" => "Processor",
+                "value" => "i10"
+            ],
+            [
+                "name" => "Display",
+                "value" => "5,5"
+            ],
+            [
+                "name" => "Camera",
+                "value" => "12Mpx"
+            ]
+        ]
+    ],
+    [
+        "name" => "Iphone 6",
+        "price" => 500,
+        "properties" => [
+            [
+                "name" => "Processor",
+                "value" => "i9"
+            ],
+            [
+                "name" => "Display",
+                "value" => "5,2"
+            ],
+            [
+                "name" => "Memory",
+                "value" => "128GB"
+            ]
+        ]
+    ]
+];
+?>
+<?php foreach($products as $product):?>
+    <h4><?=$product["name"]?>: <span><?=$product["price"]?></span>$</h4>
+    <div>Properties:</div>
+    <?php if(count($product["properties"]) > 0):?>
+        <ul>
+            <?php foreach($product["properties"] as $property):?>
+                <li>
+                    <strong><?=$property["name"]?>:</strong>
+                    <?=$property["value"]?>
+                </li>
+            <?php endforeach;?>
+        </ul>
+    <?php endif;?>
+    <hr>
+<?php endforeach;?>
