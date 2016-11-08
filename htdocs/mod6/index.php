@@ -1,11 +1,11 @@
-<?php
+п»ї<?php
 	include "lib.inc.php";
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
 <head>
-	<title>Шаблон сайта</title>
+	<title>РЁР°Р±Р»РѕРЅ СЃР°Р№С‚Р°</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 </head>
 <body>
@@ -14,7 +14,7 @@
 
 <tr>
 	<td colspan="2" align="center">
-		<!-- Верхняя часть страницы -->
+		<!-- Р’РµСЂС…РЅСЏСЏ С‡Р°СЃС‚СЊ СЃС‚СЂР°РЅРёС†С‹ -->
 		<?php
 			include "top.inc.php";
 		?>
@@ -23,27 +23,37 @@
 
 <tr>
 	<td width="20%" valign="top">
-		<!-- Меню -->
+		<!-- РњРµРЅСЋ -->
 		<?php
 			include "menu.inc.php";
 		?>
 	</td>
 	<td>
-		<!-- Область основного контента -->
+		<!-- РћР±Р»Р°СЃС‚СЊ РѕСЃРЅРѕРІРЅРѕРіРѕ РєРѕРЅС‚РµРЅС‚Р° -->
 		<?php
 		/*
-		ЗАДАНИЕ 1
-		- Создайте переменную $id
-		- Присвойте переменной $id значение параметра id переданного при запросе методом GET
-		- С помощью конструкции switch, в зависимости от значения переменной $id, выведите содержимое области основного контента страницы
+		Р—РђР”РђРќРР• 1
+		- РЎРѕР·РґР°Р№С‚Рµ РїРµСЂРµРјРµРЅРЅСѓСЋ $id
+		- РџСЂРёСЃРІРѕР№С‚Рµ РїРµСЂРµРјРµРЅРЅРѕР№ $id Р·РЅР°С‡РµРЅРёРµ РїР°СЂР°РјРµС‚СЂР° id РїРµСЂРµРґР°РЅРЅРѕРіРѕ РїСЂРё Р·Р°РїСЂРѕСЃРµ РјРµС‚РѕРґРѕРј GET
+		- РЎ РїРѕРјРѕС‰СЊСЋ РєРѕРЅСЃС‚СЂСѓРєС†РёРё switch, РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ Р·РЅР°С‡РµРЅРёСЏ РїРµСЂРµРјРµРЅРЅРѕР№ $id, РІС‹РІРµРґРёС‚Рµ СЃРѕРґРµСЂР¶РёРјРѕРµ 
+		РѕР±Р»Р°СЃС‚Рё РѕСЃРЅРѕРІРЅРѕРіРѕ РєРѕРЅС‚РµРЅС‚Р° СЃС‚СЂР°РЅРёС†С‹
 		*/
+		$id = strip_tags($_GET['id']);
+		switch($id){
+			case 'page1' :include "page1.php";break;
+			case 'page2' :include "page2.php";break;
+			case 'page3' :include "page3.php";break;
+			case 'table' :getTable();break;
+			case 'calc ' :include "calculator.php";break;
+			default: echo "<p><h1>РџСЂРё РІРµС‚ РІСЃРµРј !</h1>";
+		}
 		?>
 	</td>
 </tr>
 
 <tr>
 	<td colspan="2" align="center">
-		<!-- Нижняя часть страницы -->
+		<!-- РќРёР¶РЅСЏСЏ С‡Р°СЃС‚СЊ СЃС‚СЂР°РЅРёС†С‹ -->
 		<?php
 			include "bottom.inc.php";
 		?>

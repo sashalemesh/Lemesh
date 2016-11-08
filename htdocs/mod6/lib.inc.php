@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	function getMenu($menu, $vertical=true){
 		if(!$vertical){
 			$style = "display:inline";

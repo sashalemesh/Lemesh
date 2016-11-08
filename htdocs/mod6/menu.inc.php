@@ -1,23 +1,24 @@
-<?php
+п»ї<?php
 	/*
-	ЗАДАНИЕ 1
-	- Измените значения во всех ячейках массива на index.php
-	- Добавьте к значению "index.php" параметр id, передаваемый методом GET
-	- Добавьте к параметру id уникальные значения.
-	ПРИМЕР: index.php?id=page1
+	Р—РђР”РђРќРР• 1
+	- РР·РјРµРЅРёС‚Рµ Р·РЅР°С‡РµРЅРёСЏ РІРѕ РІСЃРµС… СЏС‡РµР№РєР°С… РјР°СЃСЃРёРІР° РЅР° index.php
+	- Р”РѕР±Р°РІСЊС‚Рµ Рє Р·РЅР°С‡РµРЅРёСЋ "index.php" РїР°СЂР°РјРµС‚СЂ id, РїРµСЂРµРґР°РІР°РµРјС‹Р№ РјРµС‚РѕРґРѕРј GET
+	- Р”РѕР±Р°РІСЊС‚Рµ Рє РїР°СЂР°РјРµС‚СЂСѓ id СѓРЅРёРєР°Р»СЊРЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ.
+	РџР РРњР•Р : index.php?id=page1
 	*/
 	$menu = array(
-		"Номе"=>"index.php", 
-		"Page1"=>"page1.php", 
-		"Page2"=>"page2.php", 
-		"Page3"=>"page3.php", 
-		"Table"=>"table.php");
+		"РќРѕРјРµ"=>"index.php", 
+		"Page1"=>"index.php?id=page", 
+		"Page2"=>"index.php?id=page2", 
+		"Page3"=>"index.php?id=page3",
+		"Table"=>"index.php?id=table",
+		"Calculator"=>"index.php?id=calc");
 
 ?>	
 <table width="100%">
 	<tr>
 		<td>
-			<p>Меню</p>
+			<p>РњРµРЅСЋ</p>
 			<?php
 				getMenu($menu);
 			?>
