@@ -14,10 +14,10 @@ define("USER_LOG","data.txt");
 if($_SERVER['REQUEST_METHOD']=="POST"){
 		$name = trim(strip_tags($_POST['fname']));
 		$age = trim(strip_tags($_POST['lname']));
-		$user = "$name $age|\n";
+		$user = "$name $age\n";
 		file_put_contents(USER_LOG,$user,FILE_APPEND);
-		header("Location: file.php");
-		exit;
+		header("Location: file.php");//чтобы по F5 не накидали все
+		exit;//чтобы по F5 не накидали все
 }
 ?>
 
@@ -51,6 +51,8 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 - В цикле выведите все строки данного файла с порядковым номером строки
 - После этого выведите размер файла в байтах.
 */
+
+/*//Вариант 1
 if(file_get_contents("data.txt")){
 	$f = file_get_contents("data.txt");
 }
@@ -63,6 +65,18 @@ if(is_array($pages)){
 			echo "<li>$value</li>";
 		}
 	echo "</ol>";
+}*/
+
+if(file_exists(USER_LOG)){
+	$users = file(USER_LOG);
+	if(is_array($users)){
+		$users = array_reverse($users);
+			echo "<ol>";
+		foreach($users as $user){
+			echo "<li>$user</li>";		
+			}
+			echo "</ol>";
+	}
 }
 
 ?>
