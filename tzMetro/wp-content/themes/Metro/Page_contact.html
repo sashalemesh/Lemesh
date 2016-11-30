@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Metro</title>     
+<link rel="stylesheet" href="css/main.css" type="text/css"/>
+<!--[if IE ]><link rel="stylesheet" href="css/css-ie.css" media="screen"><![endif]-->
+
+<script type='text/javascript' src='js/jquery-1.7.1.min.js'></script>
+
+<script type="text/javascript" src="js/form.js"></script>
+<script type="text/javascript" src="js/custom-form-elements.js"></script>
+
+<script type="text/javascript" src="js/slides.min.jquery.js"></script>
+<script type='text/javascript'>
+	jQuery(function(){
+            jQuery('#slides').slides({
+                play: 5000,
+                pause: 5000,
+                hoverPause: true
+            });
+        });
+
+</script>
+
+<script type="text/javascript" src="js/jquery.infieldlabel.min.js"></script>
+<script type="text/javascript" src="js/functions.js"></script>
+
+<link rel="stylesheet" type="text/css" media="all" href="css/calendar-brown.css" /> 
+<script type="text/javascript" src="js/calendar_stripped.js"></script> 
+<script type="text/javascript" src="js/calendar-en.js"></script> 
+<script type="text/javascript" src="js/calendar-setup_stripped.js"></script>
+
+</head>
+<body>
+	<div class="container">
+		<div class="header"> 
+            <a id="logo" href="#">Metro</a>
+            <ul class="nav">
+                <li><a href="#">HOME</a></li>
+                <li class="item-level"><a href="#">MENU</a>
+                    <div class="nav-in">
+                        <ul>
+                            <li><a href="#">Food</a></li>
+                            <li><a href="#">Drinks</a></li>
+                            <li><a href="#">Kids</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">FUNCTIIONS</a></li>
+                <li><a href="#">CONTACT</a></li>
+            </ul>
+		</div>
+		<div class="wrapper">
+			<div class="wrapper-in">
+                <div class="content">
+                    <h1>Contact</h1>
+                    <p><b>Email:</b> publican@metrohotel.com.au<br /> <b>Phone:</b> (03) 9328 4222<br /> <b>Fax:</b> (03) 9328 4288</p>
+                    <h3>OPENING TIMES</h3>
+                    <p><b>Kitchen:</b><br /> Mon – Thu 12pm-2pm, 6-9pm;<br /> Fri 12pm-3pm, 6pm-9pm<br /> Sat 6pm-9pm<br /> <b>Bar:</b> Daily 11.30am-late<br /> <b>Closed:</b> Sundays</p>
+                    <h3>ADDRESS</h3>
+                    <p>36-42 Courtney St,<br /> (Cnr Blackwood St)<br /> North Melbourne 3051<br /> Victoria</p>
+                    <div class="box-img-map">
+                        <a href="#"><img src="images/img-map.jpg" alt="" /></a>
+                    </div>
+                </div>
+                <div class="sidebar">
+                    <div class="block-sid">
+                        <div class="box-icons">
+                            <a href="#"><img src="images/icon-facebook.png" alt="" /></a>
+                            <a href="#"><img src="images/icon-twitter.png" alt="" /></a>
+                            <a href="#"><img src="images/icon-urbanspoon.png" alt="" /></a>
+                        </div>
+                        <div class="title-follow_us">Follow us</div>
+                    </div>
+                    <div class="block-sid">
+                        <div class="box-icons">
+                            <a href="#"><img src="images/icon-pdf.png" alt="" /></a>
+                        </div>
+                        <div class="title-functions_package">Functions package</div>
+                    </div>
+                    <div class="block-sid">
+                        <div class="title-make_a_reservation">Make a reservation</div>
+                        <form class="form-sid" action="" method="post">
+            				<div class="box-line">
+                                <p class="label"><label for="name">name</label><input id="name" type="text" value=""/></p>
+                                <p class="label"><label style="left: 28px;" for="date">date</label><input id="date" type="text" value=""/></p>
+                                
+                                <script type="text/javascript">
+									jQuery(document).ready(function(){
+										Calendar.setup
+										({ 
+											ifFormat    : "%d-%m-%Y",
+											inputField  : "date", // ID of the input field
+											button      : "date"      // ID of the button,
+										});   
+									})
+								</script>
+                                
+                            </div>
+                            <div class="box-line">
+                                <p class="label"><label for="phone">phone</label><input id="phone" type="text" value=""/></p>
+                                <p class="label"><label style="left: 28px;" for="time">time</label><input id="time" type="text" value=""/></p>
+                            </div>
+                            <div class="box-line">
+                                <p class="label"><label for="email">email</label><input id="email" type="text" value=""/></p>
+                            </div>
+                            <div class="box-line">
+                                <p class="label"><label for="mes">Number of people and special<br /> requirements...</label><textarea id="mes" cols="10" rows="10"></textarea></p>
+                            </div>
+                            <label class="sub"><input type="submit" value="" /></label>
+            			</form>
+                    </div>
+                </div>
+            </div>
+		</div>
+		<div id="footer">
+            <div class="footer-in">
+                <p>&copy; Copyright 2012 <a href="#">Metropolitan Hotel</a> / <a href="#">Contact us</a> / Site by <a href="#">Red Design</a></p>
+            </div>
+        </div>
+	</div>
+</body>
+</html>
