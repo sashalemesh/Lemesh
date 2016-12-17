@@ -42,3 +42,101 @@ ________________________________________________________________________________
 ___________________________________________________ТРЕТИЙ УРОК__________________________________________________________________
 
 /%category%/%postname%/.html			добавляем в настройках -> ссылки -> произвольно
+
+apply_filters('задаем имя фильтра', $text'передаем текст')		Переменные для работы с фильтрами	
+add_filters()								https://www.youtube.com/watch?v=ZUNeY17QvPM&list=PL5FCJIdFxiLlWJU4gQd9JPkhE-lsFOCAd&index=5
+add_action()								Переменные для работы с Экшенами
+do_action()
+remove_action()								Удаляют экшены
+remove_filter()								Удалябт фильтры
+
+add_theme_support							Активация темы
+
+<body <?php body_class();?>>						Выводит все стандартные классы wordpressa
+
+------------------------------------------------------Некорректно отработал для вывода постов------------------------------------------------
+<?php if(have_posts()) : ?>
+                        <?php while (have_posts()) :the_post();?>
+                            <!--Код который нужно вставить-->
+                            <div class="block-new">
+                                <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a>
+                                <div class="block-new-info">
+                                    <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                                    <p><?php the_time('j F Y');?> : <?php the_excerpt(); ?></p>
+                                </div>
+                            </div>
+                        <?php endwhile;?>
+                    <?php endif;?>
+                    
+----------------------------------------------------------------------------------------------------------------------------------------------
+___________________________________________Функция get_posts — выводим записи в любом месте шаблона wordpress__________________________________
+<?php
+$my_posts = get_posts('numberposts=0&category=3');
+foreach ($my_posts as $post) :
+setup_postdata($post);
+?>
+<h2 class="entry-title"><a hrefexcerpt="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+<?php endforeach; ?>
+___________________________________________Определяем настройки кастомайзера. Описываем секции, настройки и контролы____________________________
+function mytheme_customize_register( $wp_customize ) {
+//В этой настройке сохраняем заголовок в футере
+   $wp_customize->add_setting( 'header_textcolor' , array(
+	/*
+         * Вставляем текст по умолчанию и добавляем метод
+         * с помощью которого мы сможем переводить текс
+         */
+    'default'     => '#000000',
+	/*
+         * метод с помощью которо смотрим изменения в кастомайзере
+         * Еще есть метод 'postMessage' для java script
+         */
+    'transport'   => 'refresh',
+) );
+	//Вставляем еще секцию. Указываем id секции
+	$wp_customize->add_section( 'mytheme_new_section_name' , array(
+	//Два нижних подчеркивания функция для перевода
+    'title'      => __( 'Visible Section Name', 'mytheme' ),
+    'priority'   => 30,
+) );
+ 	//Добавляем контроллер
+	$wp_customize->add_control(
+	'your_control_id', 
+	array(
+		'label'    => __( 'Control Label', 'mytheme' ),
+		'section'  => 'your_section_id',
+		'settings' => 'your_setting_id',
+		'type'     => 'radio',
+		'choices'  => array(
+			'left'  => 'left',
+			'right' => 'right',
+		),
+	)
+);
+}
+add_action( 'customize_register', 'mytheme_customize_register' );
+_______________________________________________________________________________________________________________________________
+/* Регистрируем сайдбар foot4. */
+add_action( 'widgets_init', 'theme_slug_widgets_init' );
+function theme_slug_widgets_init() {
+    register_sidebar( array(
+        'name' => __( 'Main Sidebar', 'theme-slug' ),
+        'id' => 'sidebar-1',
+        'description' => __( 'Widgets in this area will be shown on all posts and pages.', 'theme-slug' ),
+        'before_widget' => '<li id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</li>',
+        'before_title'  => '<h2 class="widgettitle">',
+        'after_title'   => '</h2>',
+    ) );
+}
+___________________________________________________Выводим пост____________________________________________________________
+                <?php if(have_posts()) : ?>
+                <?php while (have_posts()) :the_post();?>
+                        <?php the_content() ; ?>
+                    <?php endwhile;?>
+                <?php endif;?>
+-------------------------------------------------------------
+<!--Выводим Custom field (Произвольные поля)-->
+                <?php the_field('id ссылка');?>
+-------------------------------------------------------------------
+
+		
