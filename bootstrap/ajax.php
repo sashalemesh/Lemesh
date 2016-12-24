@@ -1,6 +1,7 @@
 <?php
+//var_dump($_GET['name']);
 if($_GET['name']) {
-    $file = file('base.txt');
+    $file = file('resume.html');
     $length = trim(strip_tags($_GET['name']));
     $result = null;
     foreach ($file as $item) {
@@ -9,9 +10,9 @@ if($_GET['name']) {
             break;
         }
     }if ($result == null){
-        $item = 'Ууууууупс! Совпадений не найдено...';
+        echo 'Ууууууупс! Совпадений не найдено...';
     }else{
-        $item = $result;
+        echo $result;
     }
     //header("Location: index.php");//чтобы по F5 не накидали все
     //exit;//чтобы по F5 не накидали все

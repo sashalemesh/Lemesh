@@ -32,9 +32,9 @@
 <!--</div>-->
 
 <div class="container">
-    <form  method="post" class="center-block form-review">
+    <form  method="GET" class="center-block form-review" id="feedback">
         <h2 class="center-block">найдена строка</h2>
-        <div class="panel panel-info"><?php echo $item?></div>
+        <div class="panel panel-info" id="list"><?php echo $item?></div>
         <div class="form-group">
             <label for="name">Введите строку для поиска:</label>
             <input type="text" class="form-control" name="name" id="name"  required>
@@ -56,8 +56,12 @@
 
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="js/script.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
+
+
 </body>
 </html>
