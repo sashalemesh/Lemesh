@@ -1,0 +1,14 @@
+HTML and CSS, JQuery
+PHP
+WordPress ( development of the internal projects)
+Object Oriented Programming
+Version Control (Git, GitHub)
+Data Bases - MySQL
+English language Oriented (beginner)
+При клике на кнопку «Найти» страницу не обновлять, отправить запрос асинхронно.
+
+Файл, в котором ищем, лежит в одной папке с файлов интерфейса.
+
+Искать в файле первую строку, которая содержит введенный текст.
+
+Если ничего не найдено – сообщить, что ничего не найдено. Если строка найдена – вывести ее полностью
