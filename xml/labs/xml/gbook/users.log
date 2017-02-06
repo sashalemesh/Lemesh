@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<users>
+  <user>
+    <name>JO</name>
+    <email/>
+    <msg/>
+    <ip>127.0.0.1</ip>
+    <dt>1483725520</dt>
+  </user>
+  <user>
+    <name>John Smit</name>
+    <email>lemesf@w.voi</email>
+    <msg>fwetq 3r wer ew rew tew twqe t qt w</msg>
+    <ip>127.0.0.1</ip>
+    <dt>1483725583</dt>
+  </user>
+  <user>
+    <name>rita</name>
+    <email>dada werewff</email>
+    <msg>fweg rth  yey yer teryre ye y43y q3y</msg>
+    <ip>127.0.0.1</ip>
+    <dt>1483725879</dt>
+  </user>
+  <user>
+    <name>Bob</name>
+    <email>Bob@male.com</email>
+    <msg>Hello world</msg>
+    <ip>127.0.0.1</ip>
+    <dt>1484078943</dt>
+  </user>
+  <user>
+    <name>KEn</name>
+    <email>Ken@gmai.com</email>
+    <msg>Big Man</msg>
+    <ip>127.0.0.1</ip>
+    <dt>1484080033</dt>
+  </user>
+  <user>
+    <name>Vasia</name>
+    <email>Vasia@mail.com</email>
+    <msg>Hello Guise</msg>
+    <ip>127.0.0.1</ip>
+    <dt>1484080644</dt>
+  </user>
+</users>

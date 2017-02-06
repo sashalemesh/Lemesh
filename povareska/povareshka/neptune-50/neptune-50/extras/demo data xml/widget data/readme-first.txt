@@ -1,0 +1,1 @@
+You can import widgets demo data file called "neptune.pinsupreme.com-widgets.wie" using this plugin: https://wordpress.org/plugins/widget-importer-exporter/

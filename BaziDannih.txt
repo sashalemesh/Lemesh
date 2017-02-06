@@ -1,0 +1,262 @@
+-----------Входим в mysql-------------
+mysql -h localhost -u root -p
+-------------Создадим Б.Д.-------------
+CREATE DATABASE;
+
+-------------Создадим таблицу----------
+CREATE TABLE products(
+	id INT AUTO_INCREMENT,
+  name VARCHAR(30),
+  shop_name VARCHAR(30),
+  price INT,
+  rate INT,
+  PRIMARY KEY (id)
+);
+
+-------------Добавляем в таблицу----------
+INSERT INTO products VALUES(
+    'Appels',
+  'Dicsi',
+  '49',
+  '7'
+);
+
+-------------Просмотреть содержимое таблици----
+SELECT * FROM products;
+
+-------------Показывает выбранные поля-------
+SELECT name, price FROM products;
+
+-------------Выводим товары с рейтингом 7----
+SELECT name, price FROM products 
+  WHERE rate =7;
+  
+  -----------Выводим товары с рейтингом 7 в магазине Diksi---------------
+  SELECT name, price FROM products
+  WHERE shop_name = 'Dicsi'
+  AND rate = 7 ;
+  
+----------------Выведи все магазины которые заканчиваются на ок-----
+SELECT name FROM products
+  WHERE shop_name LIKE '%ok'
+;
+
+-------------Выводим таблицу с рейтингами 7,8,9----------
+SELECT name, rate FROM products
+  WHERE rate IN (7,8,9)
+;
+------------Выводим цену между 50 - 100-------------
+SELECT name, price FROM products
+  WHERE price BETWEEN 50 and 100
+;
+
+------------Выводим цену не между 50 - 100-----------
+SELECT name, price FROM products
+  WHERE NOT price BETWEEN 50 AND  100
+;
+
+==================Удаление записей из таблиц============
+
+------------Удаляем все записи где rate < 8-----------
+DELETE FROM products
+WHERE rate < 8
+;
+
+-------------Обновляем запись заменяя значение-------------------------
+UPDATE products SET
+  rate =20
+WHERE name = 'Milk'
+;
+
+--------------Обновляем запись добавляя к значению------
+UPDATE products SET
+  rate = rate + 20
+;
+
+---------Добавляем столбец id --------------------
+ALTER TABLE products
+    ADD COLUMN id INT AUTO_INCREMENT FIRST ,
+  ADD PRIMARY KEY (id);
+  ------------------
+  ALTER TABLE user
+    ADD COLUMN test VARCHAR(10) AFTER id;
+	
+  -----------------Удаляем колонку test----------------
+  ALTER TABLE user
+    DROP COLUMN test;
+	
+	----------Переименовуем таблицу-------------
+	ALTER TABLE users
+    RENAME TO newusers;
+	
+	-----------Меняем колонку меняем имя поля и тип-----
+	ALTER TABLE users
+    CHANGE COLUMN name names VARCHAR(15) NOT NULL ;
+	
+	-----------Модернезируем колонку меняя тип поля-----
+	ALTER TABLE users
+    MODIFY COLUMN name names VARCHAR(15) NOT NULL ;
+	
+	------------Одним запросом добавили колонки и изменили существующие------
+	ALTER TABLE users
+    ADD COLUMN id INT AUTO_INCREMENT FIRST,
+  ADD PRIMARY KEY (id),
+  CHANGE COLUMN name fname VARCHAR(20) NOT NULL,
+  ADD COLUMN lname VARCHAR(20) NOT NULL ;
+  
+  =======================Функции для работы со строками======================
+  
+  -----------Возвращаем все символы до разделителя------
+  UPDATE users
+SET 
+  lname = SUBSTRING_INDEX(names_list, ' ', 1)
+;
+
+------------------Используем Case---------------------
+UPDATE users
+SET rang = CASE
+    WHEN reputation > 350 THEN 'Elita'
+    WHEN reputation > 100 THEN 'Popular'
+    WHEN reputation > 0 THEN 'User'
+    WHEN reputation = 0 THEN 'New'
+    ELSE 'Nub'
+    END;
+	
+------------------Сортируем в алфавитном порядке------
+SELECT fname, reputation, rang FROM users ORDER BY reputation;
+----------------Сортируем в алфавитном порядке обратно-----
+SELECT fname, reputation, rang FROM users ORDER BY reputation DESC ;
+
+=====================Функции для работы с числами============
+
+------------------Выводит макс число---------------------
+SELECT SUM(rang) FROM users;
+
+-------------------Групируем по како либо колонке----------
+SELECT fname, SUM(reputation) FROM users GROUP BY reputation;
+
+-------------------Выводим значения без повторения----------
+SELECT DISTINCT fname FROM users;
+
+-------------------Групируем от дорогого к дешевому с лимитом в три-------
+SELECT fname, reputation FROM users ORDER BY reputation DESC LIMIT 0,3;
+
+---------------------Значение по умолчанию--------------------
+ALTER TABLE piople
+    ADD COLUMN income INT DEFAULT 0;
+	
+------------Выводим псевдоним fname заменяя на 'имена'-------------
+SELECT fname AS Имена FROM piople;
+
+==============Многотабличное хранение данных=====================
+
+--------------Связываем таблицы путем указания внешнего ключа-------------------
+CREATE TABLE activites(
+  act_id INT AUTO_INCREMENT PRIMARY KEY ,
+  activity VARCHAR(20) NOT NULL ,
+  user_id INT,
+  FOREIGN KEY (user_id) REFERENCES contacts (user_id)
+);
+
+------------------------------
+INSERT INTO activities VALUES (
+    NULL ,
+  'sql',
+    (SELECT user_id FROM contacts WHERE name = 'Петр')
+);
+
+=============================================================
+
+_______________________Связь один к одному-------------------
+CREATE TABLE location(
+  person_location_id INT NOT NULL PRIMARY KEY ,
+  name VARCHAR(30),
+FOREIGN KEY (person_location_id) REFERENCES persons(person_id)
+);
+
+------------------Связь один ко многим---------------------------
+CREATE TABLE users(
+  user_id INT PRIMARY KEY AUTO_INCREMENT,
+  user_name VARCHAR(20) NOT NULL ,
+  profession_id INT
+);
+
+--------------------Создаем вторую таблицу-----------
+CREATE TABLE professions(
+  profession_id INT PRIMARY KEY ,
+  profession_name VARCHAR(20) NOT NULL 
+);
+
+-------------------------
+ALTER TABLE users
+    ADD FOREIGN KEY (profession_id) REFERENCES professions(profession_id);
+	
+--------------------Связь многие ко многим---------------------------
+
+--------------------Создаем таблицу-------------CREATE TABLE students(
+  student_id INT PRIMARY KEY AUTO_INCREMENT,
+  student_name VARCHAR(20) NOT NULL
+);
+
+--------------------Создаем вторую таблицу--------------
+CREATE TABLE classes(
+  class_id INT PRIMARY KEY AUTO_INCREMENT,
+  class_name VARCHAR(20) NOT NULL
+);
+
+----------------Создаем связывающую таблицу-----------
+CREATE TABLE students_classes(
+  student_id INT NOT NULL ,
+  class_id INT NOT NULL ,
+  PRIMARY KEY (student_id, class_id),
+  FOREIGN KEY (student_id) REFERENCES students(student_id),
+  FOREIGN KEY (class_id) REFERENCES classes(class_id)
+);
+
+--------------Заполняем третью таблицу--------------
+INSERT INTO students_classes VALUES (3,2);
+
+=====================================================
+
+--------------Cоеденения-----------------------------
+
+--------------Перекрестное соединение----------------
+SELECT b.book_name, p.publisher_name FROM books b CROSS JOIN publisher p;
+
+-------------------Натуральное соединение----------------
+SELECT b.book_name, p.publisher_name FROM books b NATURAL JOIN publisher p;
+	
+----------------Внутреннее соединение----------------
+SELECT b.book_name, p.publisher_name FROM books b INNER JOIN publisher p
+ON b.publisher_id = p.publisher_id
+;
+
+----------------LEFT или RIght Внешнее соединение----------------
+SELECT b.book_name, p.publisher_name FROM books b LEFT JOIN publisher p
+ON b.publisher_id = p.publisher_id
+;
+-----------
+SELECT b.book_name, p.publisher_name FROM books b LEFT JOIN publisher p
+ON b.publisher_id = p.publisher_id
+WHERE b.publisher_id IS NULL
+;
+
+=================================================================
+--------------Выводим три таблици-------------------------------
+--------------Заполняем третью таблицу-------------------------
+INSERT INTO reviews VALUES ((SELECT books_id FROM books WHERE book_name = 'Магия и кровь'),
+  8,
+  'Красочные битвы'
+);
+
+--------------ВЫыводим данные из трех таблиц-------------
+SELECT b.book_name Книга, 
+r.reviews_rang Оценка, 
+r.reviews_comment Коментарий, 
+b.price Цена, 
+p.publisher_name Издатель
+FROM books b NATURAL JOIN publisher p INNER JOIN reviews r 
+ON b.books_id = r.reviews_id
+;
+заместо ON можно добавлять условие USING (условие)
+---------------

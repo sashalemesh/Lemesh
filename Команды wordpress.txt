@@ -138,5 +138,56 @@ ___________________________________________________Выводим пост_________________
 <!--Выводим Custom field (Произвольные поля)-->
                 <?php the_field('id ссылка');?>
 -------------------------------------------------------------------
+======================Переводим тему ()=============================
+//редактор poedit,
+//загружаем и переводим тему icanlocalize.com/tools/php_scanner
+//В файле functions.php
+function my_theme_setup(){
+	load_theme_textdomain('my_theme', get_template_directory() . '/languages');
+}
+add_action('after_setup_theme', 'my_theme_setup');
 
+В функциях к примеру - the content(__('text dlia perevoda',my_theme),'&radio;');
+В надписях которые заключены в html теги - <p><?php _e('text dlia perevoda',my_theme); ?></p>
 		
+=====================Пишем плагин==========================
+
+/*
+Plugin Name: Advanced User Chenzura
+Description: Отзывы о сайте
+Version: 1.0
+Author: Наличие ЦЕНЗУРЫ
+Author URI: http://vexell.ru/
+*/
+
+function attantion_text(){
+	$attention = 'Этот сайт под цензурой!';
+	echo "<p style='color:red'>$attention</p>";
+}
+add_action('admin_notices','attantion_text');
+
+function filter_my_bazar($text){
+	$badwords = array('козел','баран');
+	$text = str_ireplace($badwords,'{цензура}',$text);
+	return $text;
+}
+//add_filter('the_content','filter_my_bazar');
+
+=================Дочерние темы==================
+Шаг первый создаем папку дочерней темы с названием той темы 
+которая будет родительской
+Шаг второй создаем файл style.css
+
+/*
+Theme Name: name-child (имя дочерней темы*папки*)
+Template: name (имя родительской темы*папки*)
+
+Theme URL:
+Description:
+Author:
+Author URI:
+Version:
+*/
+
+//задаем путь с родительской темы стилям
+@import url("../name/style.css");

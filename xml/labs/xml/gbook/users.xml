@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<users>
+  <user>
+    <name>wer</name>
+    <email>rew</email>
+    <msg>wer rew wer rwe</msg>
+    <ip>127.0.0.1</ip>
+    <dt>1484068627</dt>
+  </user>
+  <user>
+    <name>qqdqdq</name>
+    <email>r2r2r2r</email>
+    <msg>21r2r12 12 r12r1</msg>
+    <ip>127.0.0.1</ip>
+    <dt>1484068670</dt>
+  </user>
+  <user>
+    <name>Den</name>
+    <email>Den@mail.com</email>
+    <msg>Hello boys</msg>
+    <ip>127.0.0.1</ip>
+    <dt>1484079294</dt>
+  </user>
+</users>

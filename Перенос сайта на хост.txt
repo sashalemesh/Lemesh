@@ -1,0 +1,14 @@
+В wp-config заменяем содержимое в этих пунктах
+DB_NAME
+DB_USER
+DB_PASSWORD
+DB_HOST
+
+
+
+
+В базе данных
+Заменяется url/адрес блога в настройках:
+UPDATE wp_options SET option_value = replace(option_value, 'http://localhost/имя_сайта_на_denwer', 
+
+'http://newdomain.ru') WHERE option_name = 'home' OR option_name = 'siteurl';

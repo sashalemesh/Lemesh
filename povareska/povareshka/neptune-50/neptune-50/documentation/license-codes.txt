@@ -1,0 +1,7 @@
+License codes for included premium plugins:
+
+UserPro: c4e2151c-4f1c-443c-a985-c8cc40ca5d15
+UserPro Bookmarks add-on: 62335049-36b9-47cb-a7d4-f7d7985211e2
+ACF Pro: does not have license code, updates are included in a theme update after testing. Read our documentation section "updating premium plugins" on how to update to a newer version of this plugin.
+
+!IMPORTANT: If you are getting an error when entering these product codes - make sure you have CURL enabled on your server, you can contact your hosting provider to find that out.

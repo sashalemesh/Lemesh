@@ -1,0 +1,28 @@
+<?php
+
+include "config1.php";
+
+if($_REQUEST['name2'] != null and $_REQUEST['name3'] != null) {
+//Выводим добавленного пользователя
+    $sql_select = "SELECT * FROM user WHERE username='$name3'";
+    $result2 = mysql_query($sql_select);
+    $row2 = mysql_fetch_array($result2);
+}
+//else {
+    //Выводим последнего добавленого пользователя
+    $sql_select = "SELECT * FROM user ORDER BY userid DESC LIMIT 1";
+    $result2 = mysql_query($sql_select);
+    $row2 = mysql_fetch_array($result2);
+
+//}
+//переходим на страницу, на которой располагается запись с пользователем и подсвечиваем эту строку
+$row_per_page = 10;
+$all_users = mysql_query("SELECT * FROM user ORDER BY username");
+$i = 0;
+while ( $user[] = mysql_fetch_array($all_users) ){
+    if($user[$i]['username'] == $row2['username'])
+        break;
+    $i++;
+}
+$user_row_number = count($user);
+$user_page = intval(($user_row_number - 1) / $row_per_page) + 1;

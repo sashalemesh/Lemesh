@@ -28,8 +28,8 @@
 							echo "<pre>";
 							var_dump($array2);
 							echo"</pre>";*/
-							
-							
+
+
 						/*$array[$i] = range(-3,3);
 						$array2 = [];
 						for($i=0; $i<count($array); $i++) {
@@ -44,14 +44,14 @@
 						echo "<pre>";
 						var_dump($array2);
 						echo"</pre>";*/
-						
-						
+
+
 						$arr = Array (1, -2, 1, 2, -3);
 						$arr_new = Array();
 						for ($i = 0; isset($arr[$i]); $i++)
 						{
 							array_push($arr_new, $arr[$i]);
-							if($arr[$i] < 0) 
+							if($arr[$i] < 0)
 							{
 								array_push($arr_new, 0);
 							}
@@ -59,8 +59,8 @@
 						echo "<pre>";
 						var_dump($arr_new);
 						echo"</pre>";
-						
-						
+
+
 						$arr = [-3, -2, -1, 1, 2, 3];
 						foreach ($arr as $v)
 						{
@@ -77,4 +77,21 @@
 						var_dump($newarr);
 						echo"</pre>";
 
+
+
+/*$num1 = 2;
+$operator = '+';
+$num2 =3;
+
+if($operator = '-')
+    $sum = $num1 - $num2;
+if($operator = '+')
+    $sum = $num1 + $num2;
+if($operator = '*')
+    $sum = $num1 * $num2;
+if($operator = '/')
+    $sum = $num1 / $num2;
+    else
+        echo dont;
+*/
 ?>
